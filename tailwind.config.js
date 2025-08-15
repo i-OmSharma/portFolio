@@ -5,7 +5,6 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    
     extend: {
       screens: {
         'md2': '872px'
@@ -28,6 +27,12 @@ export default {
       fontFamily: {
         'general': ['GeneralSans-Variable', 'sans-serif'],
         'grotesk': ['CabinetGrotesk-Variable', 'sans-serif'],
+        'higuen': ['Higuen', 'sans-serif'], // ← New font
+        'fraunces': ['Fraunces', 'serif'],
+        'quintessential': ['Quintessential', 'cursive'],
+        'cormorant': ['Cormorant Garamond', 'serif'],
+        'mauren': ["Mauren", "sans-serif"],
+        'seriously':['Seriously', 'sans-serif']
       },
       colors: {
         'transparent': 'transparent',
