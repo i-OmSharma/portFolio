@@ -10,7 +10,7 @@ export default {
         'md2': '872px'
       },
       fontSize: {
-        'title': ['clamp(3rem, 14vw, 9rem)'],
+        'title': ['clamp(2.6rem, 12vw, 6.8rem)'],
         'heading-1': ['clamp(2.5rem, 6.5vw, 10rem)'],
         'heading-2': ['clamp(2.4rem, 8vw, 10rem)'],
         'heading-3': ['clamp(2rem, 5vw, 2.75rem)'], 
