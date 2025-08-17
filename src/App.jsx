@@ -1,6 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
+import Lenis from "lenis";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import NavBar from "./components/ui/NavBar";
@@ -20,7 +21,26 @@ const App = () => {
 
   // Scrub animation of section headings
   useEffect(() => {
+    //Lenis Initialize.
+    const lenis = new Lenis({
+      smooth: true,
+      easing: (t) => 1 - Math.pow(1 - t, 4),
+      lerp:0.1,
+      smooth:true,
+      wheelMultiplier:1.2
+    });
+
+    //RAF loop for lenis + GSAP ScrollTrigger
+    function raf(time) {
+      lenis.raf(time);
+      ScrollTrigger.update();
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf)
+
     //TODO Learn useContext and useRef here
+    //Scrub Animation of section headings
     const sectionHeadings = document.querySelectorAll(".section-heading");
     sectionHeadings.forEach((heading) => {
       const headings = heading.querySelectorAll(".heading");
@@ -39,9 +59,12 @@ const App = () => {
           toggleActions: "play none none none",
 
         });
-        ScrollTrigger.refresh()
       });
     });
+    return () => {
+      lenis.destroy();
+      ScrollTrigger.killAll();
+    }
   }, []);
 
   
