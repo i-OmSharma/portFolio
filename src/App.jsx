@@ -24,10 +24,11 @@ const App = () => {
     //Lenis Initialize.
     const lenis = new Lenis({
       smooth: true,
-      easing: (t) => 1 - Math.pow(1 - t, 4),
-      lerp:0.1,
+      easing: (t) => 1 - Math.pow(1 - t, 3),
+      lerp:0.08,
       smooth:true,
-      wheelMultiplier:1.2
+      touchMultiplier: 1.5,
+      wheelMultiplier:0.8
     });
 
     //RAF loop for lenis + GSAP ScrollTrigger
@@ -54,13 +55,15 @@ const App = () => {
             opacity: 1,
             y: 0,
             ease: "power4.out",
-            duration: 1,
+            duration: 1.2,
           }),
           toggleActions: "play none none none",
 
         });
       });
     });
+    
+    //CleanUp
     return () => {
       lenis.destroy();
       ScrollTrigger.killAll();
