@@ -38,7 +38,7 @@ export default function Hero() {
   return (
     <section id="hero" className="hero relative flex w-full min-h-[90svh] select-none items-center justify-center pt-[var(--nav-h,72px)]" aria-label="hero">
       <div className="z-10 flex flex-col  w-full items-center text-title 2xl:text-[10vw]   text-accent-400 gap-[clamp(0.75rem,3.5vw,3rem)]">
-        <div className="title ">
+        <div className="title py-3">
           {/* Learn more about useRef */}
           <h1 ref={(el) => (titles.current[0] = el)} className="translate-y-[120%] font-higuen  overflow-visible">
             Hey
@@ -49,7 +49,7 @@ export default function Hero() {
             hi
           </h1>
         </div>
-        <div className=" title ">
+        <div className=" title py-3" >
           <h1 ref={(el) => (titles.current[2] = el)} className="translate-y-[120%] font-seriously">
             I&apos;m Om
           </h1>

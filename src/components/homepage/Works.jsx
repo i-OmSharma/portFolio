@@ -3,7 +3,7 @@ import memento from "/src/assets/images/memento-desktop.webp";
 import acc from "/src/assets/images/acc-square.webp";
 import daddy from "/src/assets/images/godaddy-desktop.webp";
 // import sunnyside from "/src/assets/images/sunnyside-desktop.webp";
-// import lambdaLLM from "/src/assets/images/labmdaLLm.png"
+import lambdaLLM from "/src/assets/images/LambdaLLM.png"
 import slot777 from "/src/assets/images/slot777.jpeg";
 import Projects from "../ui/Projects";
 import Heading from "../ui/Heading";
@@ -21,7 +21,7 @@ export default function Works({ forwardedRef }) {
         <div className=" col-span-1 md:col-span-12">
           <Projects
             link="https://musical-stroopwafel-1c2327.netlify.app/landing.html"
-            // img={lambdaLLM}
+            img={lambdaLLM}
             alt="LambdaLLMOps-pipeline"
             name="Universal Serverless Lambda LLM Ops"
             type="Cloud Native "

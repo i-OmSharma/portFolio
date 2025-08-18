@@ -26,7 +26,6 @@ const App = () => {
       smooth: true,
       easing: (t) => 1 - Math.pow(1 - t, 3),
       lerp:0.08,
-      smooth:true,
       touchMultiplier: 1.5,
       wheelMultiplier:0.8
     });
