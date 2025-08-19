@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 // import profileImg from "/src/assets/images/profile.webp";
-// import profileImg from "/src/assets/images/Om_1.jpeg";
-import profileImg from "/src/assets/images/Om_2.jpeg";
+import profileImg from "/src/assets/images/Om_1.jpeg";
+// import profileImg from "/src/assets/images/Om_2.jpeg";
 import { ScrollTrigger } from "gsap/all";
 import { gsap } from "gsap";
 import Heading from "../ui/Heading";
@@ -38,8 +38,8 @@ export default function About() {
     // Try using max width to contain the size of the container
     <section ref={aboutSection} aria-label="about me">
       <Heading title="about me" />
-      <div className="mt-10 flex flex-col items-start gap-8 sm:flex-row sm:items-center sm:justify-between md:flex-row lg:gap-10 ">
-        <div className="top-28 w-full max-w-md overflow-hidden rounded-md md:sticky md:w-1/2">
+      <div className="mt-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center md:flex-row lg:gap-8">
+        <div className="top-28 w-full max-w-md overflow-hidden rounded-md md:sticky md:w-2/5 lg:w-1/3">
           <img
             ref={profile}
             loading="lazy"
@@ -50,7 +50,7 @@ export default function About() {
             alt="portrait image of Om"
           />
         </div>
-        <div className="top-10 sm:sticky md:top-20 md:w-1/2 lg:top-32">
+        <div className="top-10 sm:sticky md:top-20 md:w-3/5 lg:w-2/3 lg:top-32">
           <div className="w-full space-y-4 2xl:space-y-10">
             <h3
               ref={heading}
@@ -62,16 +62,15 @@ export default function About() {
               ref={body}
               className=" translate-y-10 text-body-1 opacity-0 2xl:text-4xl"
             >
-              I’m an independent developer and tech enthusiast from India.
-              <br></br>
-              <br></br>I enjoy working on backend development, cloud, and
-              automation projects, and I&apos;m always exploring ways to make
-              things simpler and more efficient. I also like experimenting with
-              frontend and create user-friendly interfaces.
+              I’m Om Sharma—an independent developer from India crafting end-to-end solutions with clarity, purpose, and precision. 
+              I navigate the realms of Backend, Cloud Infrastructure, and Frontend Integration, ensuring each system is scalable, resilient, and elegantly simple.
               <br></br>
               <br></br>
-              Outside of coding, I spend time learning new tools, trying out
-              creative ideas, and exploring tech content that inspires me.
+              I’m driven by a clear vision: technology should be accessible, impactful, and rooted in ethics. 
+              That means crafting infrastructure that performs under pressure and interfaces that feel intuitive — without overcomplication.
+              <br />
+              <br />
+              I build with intentionality and integrity, continually refining my craft so that what I create endures and elevates.
             </p>
           </div>
         </div>

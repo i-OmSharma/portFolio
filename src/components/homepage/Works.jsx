@@ -20,7 +20,7 @@ export default function Works({ forwardedRef }) {
         {/* Project #1 */}
         <div className=" col-span-1 md:col-span-12">
           <Projects
-            link="https://musical-stroopwafel-1c2327.netlify.app/landing.html"
+            link="https://lambdallm.vercel.app/"
             img={lambdaLLM}
             alt="LambdaLLMOps-pipeline"
             name="Universal Serverless Lambda LLM Ops"
@@ -33,7 +33,7 @@ export default function Works({ forwardedRef }) {
         {/* Project #2 */}
         <div className="col-span-1 pt-0 md:col-span-7 md:pt-16">
           <Projects
-            link="https://mementostudio.netlify.app/"
+            link=""
             img={memento}
             alt="memento landing page mockup"
             name="Cloud Vista"
@@ -43,7 +43,7 @@ export default function Works({ forwardedRef }) {
         </div>
         <div className="col-span-1 pt-0 md:col-span-5 md:pt-80">
           <Projects
-            link="https://realbusinessaccountants.netlify.app"
+            link=""
             img={acc}
             alt="real business accountant project mockup"
             name="MicroService Chat"
@@ -53,7 +53,7 @@ export default function Works({ forwardedRef }) {
         </div>
         <div className="col-span-1 h-fit pt-0 md:col-span-8 md:pt-20">
           <Projects
-            link="https://godaddyuiclone.netlify.app"
+            link=""
             img={daddy}
             alt="Blog website"
             name="Blog website"
@@ -63,7 +63,7 @@ export default function Works({ forwardedRef }) {
         </div>
         <div className="col-span-1 h-fit md:col-span-4">
         <Projects
-            link="https://sunnysidechallenge.netlify.app"
+            link=""
             img={slot777}
             alt="sunnyside project mockup"
             name="SLOT 777"
