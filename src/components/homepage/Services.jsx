@@ -3,8 +3,8 @@ import Heading from "../ui/Heading";
 
 export default function Services() {
   const expertiseItems = [
-    "Web Devlopment",
-    "Cloud Native Developemnt",
+    "Web development",
+    "Cloud Native Development",
     "DevOps",
   ];
 
