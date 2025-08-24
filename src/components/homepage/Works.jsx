@@ -1,8 +1,9 @@
 // import ibgroup from "/src/assets/images/ib-group-desktop.webp";
-import memento from "/src/assets/images/memento-desktop.webp";
+// import memento from "/src/assets/images/memento-desktop.webp";
 import acc from "/src/assets/images/acc-square.webp";
 import daddy from "/src/assets/images/godaddy-desktop.webp";
 // import sunnyside from "/src/assets/images/sunnyside-desktop.webp";
+import cloudCost from "/src/assets/images/cloudcost.png"
 import lambdaLLM from "/src/assets/images/LambdaLLM.png"
 import slot777 from "/src/assets/images/slot777.jpeg";
 import Projects from "../ui/Projects";
@@ -34,7 +35,7 @@ export default function Works({ forwardedRef }) {
         <div className="col-span-1 pt-0 md:col-span-7 md:pt-16">
           <Projects
             link=""
-            img={memento}
+            img={cloudCost}
             alt="memento landing page mockup"
             name="Cloud Vista"
             type="Cloud Native"

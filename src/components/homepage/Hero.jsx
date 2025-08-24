@@ -46,7 +46,7 @@ export default function Hero() {
         </div>
         <div className=" title ">
         <h1 ref={(el) => (titles.current[1] = el)} className="translate-y-[120%] font-fraunces font-light italic overflow-visible">
-            hi
+            there
           </h1>
         </div>
         <div className=" title py-3" >

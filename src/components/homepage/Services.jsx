@@ -3,7 +3,7 @@ import Heading from "../ui/Heading";
 
 export default function Services() {
   const expertiseItems = [
-    "Web Development",
+    "Web Devlopment",
     "Cloud Native Developemnt",
     "DevOps",
   ];
@@ -26,7 +26,7 @@ export default function Services() {
       <Heading title="services" />
       <div className="space-y-14">
         <ServiceUi
-          title="my expertises."
+          title="my expertise."
           description="I build scalable backend systems, cloud-native solutions, 
                        and AI-powered automations to deliver impactful and 
                        future-ready digital experiences."
