@@ -1,6 +1,8 @@
 // import ibgroup from "/src/assets/images/ib-group-desktop.webp";
 // import memento from "/src/assets/images/memento-desktop.webp";
-import acc from "/src/assets/images/acc-square.webp";
+// import acc from "/src/assets/images/acc-square.webp";
+import bweb from "/src/assets/images/bweb.png";
+import chat from "/src/assets/images/chat.png";
 import daddy from "/src/assets/images/godaddy-desktop.webp";
 // import sunnyside from "/src/assets/images/sunnyside-desktop.webp";
 import cloudcost from "/src/assets/images/cloudcost.png"
@@ -45,7 +47,7 @@ export default function Works({ forwardedRef }) {
         <div className="col-span-1 pt-0 md:col-span-5 md:pt-80">
           <Projects
             link=""
-            img={acc}
+            img={chat}
             alt="real business accountant project mockup"
             name="MicroService Chat"
             type="Full-Stack Development"
@@ -55,7 +57,7 @@ export default function Works({ forwardedRef }) {
         <div className="col-span-1 h-fit pt-0 md:col-span-8 md:pt-20">
           <Projects
             link=""
-            img={daddy}
+            img={bweb}
             alt="Blog website"
             name="Blog website"
             type="Full-Stack Development"
