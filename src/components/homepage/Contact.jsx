@@ -7,27 +7,25 @@ import Heading from "../ui/Heading";
 
 export default function Contact() {
   const [time, setTime] = useState(new Date().toLocaleTimeString());
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
-  const heading = useRef(null)
-  const body = useRef(null)
-  const contactSection = useRef(null)
+  const heading = useRef(null);
+  const body = useRef(null);
+  const contactSection = useRef(null);
 
   useEffect(() => {
     ScrollTrigger.create({
       trigger: contactSection.current,
-      start:"180px bottom",
-
-      // markers: true,
+      start: "180px bottom",
       animation: gsap
         .timeline()
         .to(heading.current, { opacity: 1, y: 0, ease: "power4.out", duration: 1.25 }, 0)
         .to(body.current, { opacity: 1, y: 0, ease: "power4.out", duration: 1.25 }, 0.2),
-
       toggleActions: "play none none none",
     });
     ScrollTrigger.refresh();
-
-  }, [contactSection])
+  }, [contactSection]);
 
   useEffect(() => {
     setInterval(() => {
@@ -35,39 +33,70 @@ export default function Contact() {
     }, 1000);
   });
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
+    const formData = new FormData(e.target);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message')
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitMessage("✅ Thanks! Your message has been sent successfully.");
+        e.target.reset(); // Clear form
+      } else {
+        setSubmitMessage("❌ Sorry, something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitMessage("❌ Network error. Please check your connection and try again.");
+    }
+
+    setIsSubmitting(false);
+  };
+
   return (
     <section
       id="contact"
       className="my-[10%] overflow-hidden"
       aria-label="contact me"
     >
-      
-      
       <Heading title="Contact Me" />
       <div ref={contactSection} className="mt-10 flex flex-col gap-20 md:grid md:grid-cols-6 md:px-12">
         <div className="col-span-4">
           <h3 ref={heading} className="max-w-lg 2xl:max-w-3xl text-heading-3 2xl:text-7xl font-semibold leading-tight translate-y-10 opacity-0">
             Have an awesome idea? Let me bring it to life.
           </h3>
+          
           <form
-            name="contact"
-            action="/contact"
-            autoComplete="off"
-            // eslint-disable-next-line react/no-unknown-property
+            onSubmit={handleSubmit}
             className="mt-10 font-grotesk"
-            method="POST" 
           >
-            <input type="hidden" name="form-name" value="contact"/>
             <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2">
               <div className="relative z-0">
-                  <input
-                    required
-                    type="text"
-                    id="name"
-                    name="name"
-                    className="peer block w-full appearance-none border-0 border-b border-accent-100 bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
-                    placeholder=" "
-                  />
+                <input
+                  required
+                  type="text"
+                  id="name"
+                  name="name"
+                  className="peer block w-full appearance-none border-0 border-b border-accent-100 bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
+                  placeholder=" "
+                />
                 <label
                   htmlFor="name"
                   className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-body-3 2xl:text-body-2 text-secondary-600 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75"
@@ -75,10 +104,11 @@ export default function Contact() {
                   Your name
                 </label>
               </div>
+              
               <div className="relative z-0">
                 <input
                   required
-                  type="text"
+                  type="email"
                   name="email"
                   id="email"
                   className="peer block w-full appearance-none border-0 border-b border-accent-100 bg-transparent px-0 py-2.5 focus:outline-none focus:ring-0"
@@ -91,6 +121,7 @@ export default function Contact() {
                   Your email
                 </label>
               </div>
+              
               <div className="relative z-0 sm:col-span-2">
                 <textarea
                   required
@@ -108,19 +139,28 @@ export default function Contact() {
                 </label>
               </div>
             </div>
+            
             <button
               type="submit"
-              className="button group mt-10 border duration-200 hover:border-accent-400 hover:bg-transparent"
+              disabled={isSubmitting}
+              className="button group mt-10 border duration-200 hover:border-accent-400 hover:bg-transparent disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span className="relative">
                 <span className="absolute bottom-2 h-1 w-0 bg-secondary-700 opacity-90 duration-300 ease-out group-hover:w-full"></span>
                 <span className="group-hover:text-accent-400">
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </span>
               </span>
             </button>
+            
+            {submitMessage && (
+              <div className={`mt-4 p-4 rounded-md ${submitMessage.includes('✅') ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                {submitMessage}
+              </div>
+            )}
           </form>
         </div>
+        
         <div className="col-span-2 grid grid-cols-1 gap-x-4 gap-y-8 text-accent-300 sm:grid-cols-2 sm:gap-y-0 md:grid-cols-1">
           <div className="space-y-3 ">
             <h4 className="text-body-1 2xl:text-4xl font-semibold">Contact Details</h4>
@@ -134,9 +174,9 @@ export default function Contact() {
                 <span>contact@iomsharma.com</span>
                 <span className="absolute bottom-0 left-0 h-[0.12em] w-0 rounded-full bg-secondary-600 duration-300 ease-in-out group-hover:w-full"></span>
               </a>
-             
             </div>
           </div>
+          
           <div className="space-y-3 ">
             <h4 className="text-body-1 2xl:text-4xl font-semibold">My Digital Spaces</h4>
             <div className="space-y-3 text-body-2 2xl:text-3xl">
@@ -178,6 +218,7 @@ export default function Contact() {
               </a>
             </div>
           </div>
+          
           <div className="space-y-3 ">
             <h4 className="text-body-1 font-semibold 2xl:text-4xl">Location</h4>
             <div className="space-y-2 text-body-2 2xl:text-3xl">
