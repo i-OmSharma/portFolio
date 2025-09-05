@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 // import profileImg from "/src/assets/images/profile.webp";
-import profileImg from "/src/assets/images/Om_1.jpeg";
+import profileImg from "/src/assets/images/Om_4.png";
 // import profileImg from "/src/assets/images/Om_2.jpeg";
 import { ScrollTrigger } from "gsap/all";
 import { gsap } from "gsap";
